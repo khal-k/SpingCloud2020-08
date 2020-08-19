@@ -1,27 +1,28 @@
 server:
-  port: 2001
+  port: 2002
+
 spring:
   application:
-    name: seata-order-service
+    name: seata-storage-service
   cloud:
     alibaba:
       seata:
         tx-service-group: fsp_tx_group
     nacos:
       discovery:
-        server-addr: 127.0.0.1:8848
+        server-addr: localhost:8848
   datasource:
-    type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/seata_order
+    url: jdbc:mysql://localhost:3306/seata_storage
     username: root
     password: root
-feign:
-  hystrix:
-    enabled: false
+
 logging:
   level:
-     io:
+    io:
       seata: info
+
 mybatis:
-  mapperLocations: classpath*:mapper/*.xml
+  mapperLocations: classpath:mapper/*.xml
+
+
