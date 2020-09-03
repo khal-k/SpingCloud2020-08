@@ -23,6 +23,16 @@ public class OrderController {
     //private static final String PAYMENT_URL="http://localhost:8001";
     private static final String PAYMENT_URL="http://CLOUD-PAYMENT-SERVICE";
 
+
+    // ====================> zipkin+sleuth
+    @GetMapping("/consumer/payment/zipkin")
+    public String paymentZipkin()
+    {
+        String result = restTemplate.getForObject(PAYMENT_URL+"/payment/zipkin/", String.class);
+        return result;
+    }
+
+
     @PostMapping("/consumer/payment/create")
     public CommonResult<Payment> create(Payment payment){
         return restTemplate.postForObject(PAYMENT_URL+"/payment/create",payment,CommonResult.class);

@@ -31,6 +31,14 @@ public class PaymentController {
     @Resource
     private DiscoveryClient discoveryClient;
 
+
+    /*zipkin*/
+    @GetMapping("/payment/zipkin")
+    public String paymentZipkin(){
+        return "hi,i am payment zipkin server fall............to O(∩_∩)O哈哈~";
+    }
+
+
     @GetMapping("/payment/get/{id}")
     public CommonResult<Payment> selectById(@PathVariable("id") long id){
         Payment payment = paymentService.selectPaymentById(id);
