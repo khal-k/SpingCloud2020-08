@@ -13,7 +13,25 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/kjqJava/springcloud-config.git
+          uri: https://github.com/kjqJava/springcloud-config.git  #github上面的git仓库名字
+          ####搜索目录
           search-paths:
             - springcloud-config
+          ####读取分支
       label: master
+
+#rabbitmq相关配置
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+
+##rabbitmq相关配置,暴露bus刷新配置的端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "bus-refresh"
+
